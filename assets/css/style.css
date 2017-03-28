@@ -1,0 +1,13 @@
+#buttonDiv button {
+	margin: 10px 10px;
+}
+
+#gifsDiv .gifsDiv {
+	width: 30%;
+	float: left;
+}
+
+
+#gifsDiv .gifImage {
+	width: inherit;
+}
