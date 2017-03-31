@@ -23,13 +23,12 @@ $('#gsButtonGenorator').on('click', function() {
 $('#buttonDiv').on('click', '.gs', function() {
     // get the users input and if spaces are in 
     var queryId = ($(this).html()).replace(/ /g, '+');
-    queryURL = "http://api.giphy.com/v1/gifs/search?q= " + queryId + "&limit=10&api_key=dc6zaTOxFJmzC"
-    console.log(queryURL);
+    queryURL = "http://api.giphy.com/v1/gifs/search?q= " + queryId + "&limit=9&api_key=dc6zaTOxFJmzC"
     $.ajax({
         method: "GET",
         url: queryURL
     }).done(function(response) {
-        // console.log(response);
+        console.log(response);
         // console.log(response.data[0].images.original.url);
         // console.log(response.data[0].images.original_still.url);
         $('#gifsDiv').empty();
@@ -37,7 +36,7 @@ $('#buttonDiv').on('click', '.gs', function() {
             var gifImg = $('<img>');
             var gifImgDiv =  $('<div>');
             gifImgDiv.attr('class', 'gifsDiv text-center');
-            gifImg.attr({ src: response.data[i].images.original_still.url, state: 'still', 'data-actice': response.data[i].images.original.url, 'data-still': response.data[i].images.original_still.url,})
+            gifImg.attr({ src: response.data[i].images.fixed_height_still.url, state: 'still', 'data-actice': response.data[i].images.fixed_height.url, 'data-still': response.data[i].images.fixed_height_still.url, 'class': 'gifImage'})
             gifImgDiv.append('<p> Rating:  ' + response.data[i].rating +'</p>' , gifImg);
             $('#gifsDiv').append(gifImgDiv);
         }

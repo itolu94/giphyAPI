@@ -9,20 +9,24 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="buttonDiv">
+    <div id="wrap">
+        <div class="container" id="containerAdjuster">
+            <div id="buttonDiv">
+            </div>
+            <form>
+                <label for="gsSearchBar">Game Show</label>
+                <input type="text" id="gsSearchBar" autocomplete="off">
+                <input type="submit" id="gsButtonGenorator">
+            </form>
+            <div id="gifsDiv">
+            </div>
         </div>
-        <form>
-            <label for="gsSearchBar">Game Show</label>
-            <input type="text" id="gsSearchBar">
-            <input type="submit" id="gsButtonGenorator">
-        </form>
-        <div id="gifsDiv">
-        </div>
+        <footer id="footer">
+            <div class="container-fluid">
+                <p>Copyright Tolu Idowu</p>
+            </div>
+        </footer>
     </div>
-
-
-
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="assets/javascript/giphyAPI.js"></script>
 </body>
