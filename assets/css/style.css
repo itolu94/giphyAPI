@@ -17,10 +17,6 @@ body {
 	
 }
 
-/*#gifsDiv {
-	height: 144%;
-
-}*/
 #buttonDiv button {
     margin: 10px 10px;
 }
@@ -41,24 +37,3 @@ body {
     margin: 0 5%;
 }
 
-#footer {
-    position: absolute;
-    bottom: 0;
-    background-color: grey;
-    border-top: 4px solid black;
-    width: 100%;
-    height: 60px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-#wrap {
-	height: 89%;
-	overflow-y: scroll;
-}
-
-
-#footer div {
-    padding: 10px;
-    color: white;
-}
