@@ -21,7 +21,7 @@ $('#gsButtonGenerator').on('click', function() {
 $('#buttonDiv').on('click', '.gs', function() {
     // replaces spaces with +
     var queryId = ($(this).html()).replace(/ /g, '+');
-    queryURL = "http://api.giphy.com/v1/gifs/search?q= " + queryId + "&limit=9&api_key=dc6zaTOxFJmzC"
+    queryURL = "https://api.giphy.com/v1/gifs/search?q= " + queryId + "&limit=9&api_key=dc6zaTOxFJmzC"
     $.ajax({
         method: "GET",
         url: queryURL
