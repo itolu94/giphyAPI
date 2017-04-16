@@ -35,19 +35,9 @@ $(document).ready(function() {
             method: "GET",
             url: queryURL
         }).done(function(response) {
-            // emptys the div that the divs are held in
-            // $('#gifsDiv').empty();
             gameShowsImages = [];
-            // create div for each image
             for (var i = 0; i < response.data.length; i++) {
-                // var gifImg = $('<img>');
-                // var gifImgDiv = $('<div>');
-                // gifImgDiv.attr('class', 'gifsDiv text-center');
-                // gifImg.attr({ src: response.data[i].images.fixed_height_still.url, state: 'still', 'data-actice': response.data[i].images.fixed_height.url, 'data-still': response.data[i].images.fixed_height_still.url,  'class': 'gifImage' })
-                // img.attr({ src: gameShowsImages[0].src, state: gameShowsImages[0].state, 'data-actice': gameShowsImages[0]['data-actice'], 'data-still': gameShowsImages[0]['data-still'], rating: gameShowsImages[0].rating, 'class': gameShowsImages[0]['class'] })
                 gameShowsImages.push({ src: response.data[i].images.fixed_height_still.url, state: 'still', 'data-actice': response.data[i].images.fixed_height.url, 'data-still': response.data[i].images.fixed_height_still.url, rating: response.data[i].rating, 'class': 'gifImage' });
-                // gifImgDiv.append('<p> Rating:  ' + response.data[i].rating + '</p>', gifImg);
-                // $('#gifsDiv').append(gifImgDiv);
             }
             slideShow();
         })
