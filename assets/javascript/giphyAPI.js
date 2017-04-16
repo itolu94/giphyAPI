@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     // Buttons for shows
     var gameShows = ["Family Fued", "Price is Right", "Deal or No Deal", "wheel of Fortune", "Jepordy", "Newly Weds"];
-    var gameShowsImages = [""];
+    var gameShowsImages;
     var counter = 0;
 
     for (var i = 0; i < gameShows.length; i++) {
@@ -45,7 +45,7 @@ $(document).ready(function() {
                 // gifImgDiv.attr('class', 'gifsDiv text-center');
                 // gifImg.attr({ src: response.data[i].images.fixed_height_still.url, state: 'still', 'data-actice': response.data[i].images.fixed_height.url, 'data-still': response.data[i].images.fixed_height_still.url,  'class': 'gifImage' })
                 // img.attr({ src: gameShowsImages[0].src, state: gameShowsImages[0].state, 'data-actice': gameShowsImages[0]['data-actice'], 'data-still': gameShowsImages[0]['data-still'], rating: gameShowsImages[0].rating, 'class': gameShowsImages[0]['class'] })
-                gameShowsImages.push({ src: response.data[i].images.fixed_height_still.url, state: 'still', 'data-actice': response.data[i].images.fixed_height.url, 'data-still': response.data[i].images.fixed_height_still.url, ratin: response.data[i].rating, 'class': 'gifImage' });
+                gameShowsImages.push({ src: response.data[i].images.fixed_height_still.url, state: 'still', 'data-actice': response.data[i].images.fixed_height.url, 'data-still': response.data[i].images.fixed_height_still.url, rating: response.data[i].rating, 'class': 'gifImage' });
                 // gifImgDiv.append('<p> Rating:  ' + response.data[i].rating + '</p>', gifImg);
                 // $('#gifsDiv').append(gifImgDiv);
             }
@@ -54,45 +54,69 @@ $(document).ready(function() {
     });
 
     function slideShow() {
-        $('.gifSlideShow:nth-child(1)').empty();
+        $('.gifSlideShow' + counter).empty();
         console.log(gameShowsImages);
-        console.log(gameShowsImages[0]);
+        console.log(gameShowsImages[counter]);
         var img = $('<img>');
-        img.attr({ src: gameShowsImages[0].src, state: gameShowsImages[0].state, 'data-actice': gameShowsImages[0]['data-actice'], 'data-still': gameShowsImages[0]['data-still'], rating: gameShowsImages[0].rating, 'class': gameShowsImages[0]['class'] })
+        img.attr({ src: gameShowsImages[counter].src, state: gameShowsImages[counter].state, 'data-actice': gameShowsImages[counter]['data-actice'], 'data-still': gameShowsImages[counter]['data-still'], rating: gameShowsImages[counter].rating, 'class': gameShowsImages[counter]['class'] })
         $('.gifSlideShow' + counter).append(img);
+        var paragraph = $('<p>')
+        paragraph.html("Rating: " + gameShowsImages[counter].rating)
+        $('.gifSlideShow' + counter).append(paragraph);
+
     }
 
 
     $('#nextImg').on('click', function() {
+        // checks to see if we are on the last img
         if (counter < 8) {
+            // remove img that was previously on the screen
             $('.gifSlideShow' + counter).empty();
+            // increase counter
             counter++
             var img = $('<img>');
             img.attr({ src: gameShowsImages[counter].src, state: gameShowsImages[counter].state, 'data-actice': gameShowsImages[counter]['data-actice'], 'data-still': gameShowsImages[counter]['data-still'], rating: gameShowsImages[counter].rating, 'class': gameShowsImages[counter]['class'] });
+            // animate img onto screen
             $('.gifSlideShow' + counter).append(img).css({ 'opacity': 0 }).animate({ 'opacity': 1 });
+            var paragraph = $('<p>')
+            paragraph.html("Rating: " + gameShowsImages[counter].rating)
+            // append rating onto screen
+            $('.gifSlideShow' + counter).append(paragraph);
+            // if we are on the last img, we go back to the first img
         } else if (counter === 8) {
             $('.gifSlideShow' + counter).empty();
             counter = 0;
             var img = $('<img>');
             img.attr({ src: gameShowsImages[counter].src, state: gameShowsImages[counter].state, 'data-actice': gameShowsImages[counter]['data-actice'], 'data-still': gameShowsImages[counter]['data-still'], rating: gameShowsImages[counter].rating, 'class': gameShowsImages[counter]['class'] });
             $('.gifSlideShow' + counter).append(img).css({ 'opacity': 0 }).animate({ 'opacity': 1 });
+            var paragraph = $('<p>')
+            paragraph.html("Rating: " + gameShowsImages[counter].rating)
+            $('.gifSlideShow' + counter).append(paragraph);
         }
     });
 
 
     $('#previousImg').on('click', function() {
+        // checks to see if we are at the first img
         if (counter > 1) {
             $('.gifSlideShow' + counter).empty();
             counter--
             var img = $('<img>');
             img.attr({ src: gameShowsImages[counter].src, state: gameShowsImages[counter].state, 'data-actice': gameShowsImages[counter]['data-actice'], 'data-still': gameShowsImages[counter]['data-still'], rating: gameShowsImages[counter].rating, 'class': gameShowsImages[counter]['class'] })
             $('.gifSlideShow' + counter).append(img).css({ 'opacity': 0 }).animate({ 'opacity': 1 });
+            var paragraph = $('<p>')
+            paragraph.html("Rating: " + gameShowsImages[counter].rating)
+            $('.gifSlideShow' + counter).append(paragraph);
+            // if we are at the first img, we change the counter to the last img
         } else if (counter === 1) {
             $('.gifSlideShow' + counter).empty();
             counter = 8;
             var img = $('<img>');
             img.attr({ src: gameShowsImages[counter].src, state: gameShowsImages[counter].state, 'data-actice': gameShowsImages[counter]['data-actice'], 'data-still': gameShowsImages[counter]['data-still'], rating: gameShowsImages[counter].rating, 'class': gameShowsImages[counter]['class'] })
             $('.gifSlideShow' + counter).append(img).css({ 'opacity': 0 }).animate({ 'opacity': 1 });
+            var paragraph = $('<p>')
+            paragraph.html("Rating: " + gameShowsImages[counter].rating)
+            $('.gifSlideShow' + counter).append(paragraph);
         }
     });
 
