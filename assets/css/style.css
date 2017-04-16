@@ -7,6 +7,8 @@ body {
 	min-height: 100%;
 	height: 100%;
 	position: relative;
+	background-image: url('https://media.giphy.com/media/lfxm47k9RPM0E/giphy.gif');
+	background-size: cover;
 }
 
 
@@ -21,10 +23,33 @@ body {
     margin: 10px 10px;
 }
 
-#gifsDiv .gifsDiv {
+#gifsDiv  {
     width: 30%;
     float: left;
     margin-bottom: 3%;
+    position: relative;
+}
+
+.gifImage{
+	width: 100%;
+	height: 100%;
+}
+#previousImg {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	background-color: black;
+	width: 15%;
+	opacity: 0.5;
+}
+
+#nextImg {
+	position: absolute;
+	right: 0;
+	height: 100%;
+	background-color: black;
+	width: 15%;
+	opacity: 0.5;
 }
 
 
