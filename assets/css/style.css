@@ -31,9 +31,16 @@ body {
     position: relative;
 }
 
+/*div that buttons are pushed into*/
+#buttonDiv {
+	margin-bottom: 3%;
+}
+
+
 .gifImage{
 	width: 100%;
 	height: 100%;
+	border: 4px white solid;
 }
 
 .slideShow {
@@ -47,7 +54,7 @@ body {
 	height: 100%;
 	background-color: black;
 	width: 15%;
-	opacity: 0.5;
+	opacity: 0.7;
 }
 
 
@@ -57,8 +64,9 @@ body {
 	height: 100%;
 	background-color: black;
 	width: 15%;
-	opacity: 0.5;
+	opacity: 0.7;
 }
+
 
 /*Helps slightly center rating that displays on gifs*/
 .slideShow p{

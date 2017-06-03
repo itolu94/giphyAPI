@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // Buttons for shows
-    var gameShows = ["Family Fued", "Price is Right", "Deal or No Deal", "wheel of Fortune", "Jepordy", "Newly Weds"];
+    var gameShows = ["Bleach","Naruto", "Bleach", "Tokyo Ghoul", "Dragon Ball"];
     var gameShowsImages;
     var counter = 0;
 
@@ -45,8 +45,6 @@ $(document).ready(function() {
 
     function slideShow() {
         $('.gifSlideShow' + counter).empty();
-        console.log(gameShowsImages);
-        console.log(gameShowsImages[counter]);
         var img = $('<img>');
         img.attr({ src: gameShowsImages[counter].src, state: gameShowsImages[counter].state, 'data-actice': gameShowsImages[counter]['data-actice'], 'data-still': gameShowsImages[counter]['data-still'], rating: gameShowsImages[counter].rating, 'class': gameShowsImages[counter]['class'] })
         $('.gifSlideShow' + counter).append(img);
@@ -112,7 +110,6 @@ $(document).ready(function() {
 
     // Changes the state of the gif when it was clicked
     $('#gifsDiv').on('click', 'img', function() {
-        console.log("Current state is " + $(this).attr('state'));
         if ($(this).attr('state') === 'still') {
             $(this).attr({ 'src': $(this).attr('data-actice'), state: 'active' });
         } else if ($(this).attr('state') === 'active') {
